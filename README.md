@@ -22,4 +22,4 @@ The Tor implementation part is not currently exposed. Will update it once I get 
 Previous versions used a custom modified OnionMasq fork to make Tor interfaces. However, this exposed some problems with GuardManager that crashed the program in rare cases. So for now, it launches an OnionMasq binary as a program... 
 
 ## Mullvad VPN
-The Mullvad VPN connections are generated automatically by communicating with their API, and create a new "Mullvad Device" for each VPN connection. Accounts are needed for this functionality. 
+The Mullvad VPN connections are generated automatically by communicating with their API, and for each VPN connection, a new "Mullvad Device" is created. Mullvad accounts are needed for this functionality. 
