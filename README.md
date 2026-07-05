@@ -7,5 +7,5 @@ It currently creates automatic Mullvad VPN connections (Wireguard interfaces), c
 ## Tor
 Uses an OnionMasq installation (currently) for creating Tor interfaces. Previous versions had a custom implementation of OnionMasq that didnt use a OnionMasq implementation. This is to be reimplementated. 
 
-# IT WONT RUN
+# TOR will be a problem
 Not all code is exposed probably. To be specific, the current version is missing my custom OnionMasq implementation/program that allows binding to specific interfaces and etc.. 
