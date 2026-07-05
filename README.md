@@ -1,11 +1,21 @@
-# Warning
-This is my first Rust project, which is obvious when you inspect the code. This was used in a thesis for collecting data on different Connection Types.
-More info will come if I get the time to add any.
-# What it does
-## Mullvad VPN
-It currently creates automatic Mullvad VPN connections (Wireguard interfaces), communicating with their APIs.
-## Tor
-Uses an OnionMasq installation (currently) for creating Tor interfaces. Previous versions had a custom implementation of OnionMasq that didnt use a OnionMasq implementation. This is to be reimplementated. 
+# TrafficStar Collector
 
-# TOR will be a problem
-Not all code is exposed probably. To be specific, the current version is missing my custom OnionMasq implementation/program that allows binding to specific interfaces and etc.. 
+A data collection tool developed for a master's thesis on connection-type 
+fingerprinting of Tor and VPN users at Karlstad University (2025–2026).
+
+## What it does
+
+TrafficStar automatically creates Tor and Mullvad VPN (WireGuard) connections, 
+generates upload traffic from a client to a server, and records server-side 
+network traces using tcpdump. It was used to collect internet measurement 
+datasets across four network access technologies (Ethernet, WiFi, 5G, Starlink).
+
+## Thesis
+
+TrafficStar: Connection-Type Fingerprinting of Tor Users — Reducing Anonymity 
+by Detecting Connection Types. Karlstad University, 2026.
+
+[Available on DiVA] (add link when published)
+
+## TOR
+The tor implementation part is not currently exposed. Will update once i have the time to do so :). 
