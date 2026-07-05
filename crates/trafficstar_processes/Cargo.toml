@@ -1,0 +1,44 @@
+[package]
+name = "trafficstar_processes"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+repository.workspace = true
+description = "Handles proccesses!"
+readme.workspace = true
+
+[dependencies]
+nix = "0.15.0"
+log = "^0.4.28"
+thiserror = "^2.0.17"
+strum_macros = "^0.27"
+strum = "^0.27"
+trafficstar_logger = { path = "../trafficstar_logger" }
+trafficstar_logger_macro = { path = "../trafficstar_logger_macro" }
+trafficstar_errors = { path = "../trafficstar_errors" }
+trafficstar_utilities = { path = "../trafficstar_utilities" }
+trafficstar_interface = { path = "../trafficstar_interface" }
+
+
+tokio = { version = "^1.47.1", features = ["full"] } 
+tokio-util = { version = "^0.7", features = ["full"] }
+futures = "^0.3.31"
+futures-util = "*"
+tempdir = "*"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_with = "^3.18.0"
+
+[dependencies.uuid]
+version = "^1.18.1"
+# Lets you generate random UUIDs
+features = [
+    "v4",
+]
+
+
+[lib]
+path = "src/lib.rs"

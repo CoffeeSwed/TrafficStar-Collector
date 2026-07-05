@@ -1,0 +1,49 @@
+[package]
+name = "trafficstar_nodes"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+repository.workspace = true
+description = "Handles nodes (Clients or servers)!"
+readme.workspace = true
+
+[dependencies]
+strum_macros = "^0.27"
+strum = "^0.27"
+trafficstar_connections = { path = "../trafficstar_connections" }
+trafficstar_processes = { path = "../trafficstar_processes" }
+trafficstar_logger = { path = "../trafficstar_logger" }
+trafficstar_utilities = { path = "../trafficstar_utilities" }
+trafficstar_errors = { path = "../trafficstar_errors" }
+trafficstar_tester = { path = "../trafficstar_tester" }
+trafficstar_logger_macro = { path = "../trafficstar_logger_macro" }
+trafficstar_interface = { path = "../trafficstar_interface" }
+file-owner = "^0.1.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4.28"
+url = "^2.2"
+
+
+tokio = { version = "^1.47.1", features = ["full"] } 
+tokio-util = { version = "^0.7", features = ["full"] }
+futures = "^0.3.31"
+futures-util = "*"
+tempfile = "*"
+indicatif = {version = "0.18.0", features = ["rayon"]}
+
+
+chrono = "0.4.42"
+[dependencies.uuid]
+version = "1.18.1"
+# Lets you generate random UUIDs
+features = [
+    "v4",
+]
+
+[lib]
+path = "src/lib.rs"
+

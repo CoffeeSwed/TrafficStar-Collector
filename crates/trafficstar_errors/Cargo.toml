@@ -1,0 +1,30 @@
+[package]
+name = "trafficstar_errors"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+repository.workspace = true
+description = "TrafficStar errors used for the project!"
+readme.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+thiserror = "^2.0.17"
+strum_macros = "^0.27"
+strum = "^0.27"
+futures = "0.3.31"
+err = "0.0.8"
+tokio = {version = "^1.49.0", features = ["full"]}
+tokio-util = { version = "^0.7", features = ["full"] }
+
+nix = {version = "^0.31.1", features=["event", "fs"]}
+trafficstar_logger_macro = { path = "../trafficstar_logger_macro" }
+
+
+[lib]
+path = "src/lib.rs"

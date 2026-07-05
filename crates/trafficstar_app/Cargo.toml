@@ -1,0 +1,61 @@
+[package]
+name = "trafficstar_app"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+repository.workspace = true
+readme.workspace = true
+description = "The main 'app'"
+
+[lints]
+workspace = true
+
+[features]
+default = []
+
+[dependencies]
+trafficstar_connections = { path = "../trafficstar_connections" }
+trafficstar_nodes = { path = "../trafficstar_nodes" }
+trafficstar_logger = { path = "../trafficstar_logger" }
+trafficstar_tor = { path = "../trafficstar_tor" }
+trafficstar_mullvad = { path = "../trafficstar_mullvad" }
+trafficstar_tester = { path = "../trafficstar_tester" }
+trafficstar_processes = { path = "../trafficstar_processes" }
+trafficstar_tests = { path = "../trafficstar_tests" }
+trafficstar_logger_macro = { path = "../trafficstar_logger_macro" }
+trafficstar_errors = { path = "../trafficstar_errors" }
+trafficstar_utilities = { path = "../trafficstar_utilities" }
+trafficstar_interface = { path = "../trafficstar_interface" }
+
+strum = "^0.27"
+strum_macros = "^0.27"
+config = "^0.15.15"
+network-interface = "^2.0.3"
+socket2 = "^0.6.0"
+directories = "5.0"
+log = "^0.4.28"
+tokio = { version = "^1", features = ["full"] }
+nix = "^0.15.0"
+rayon = "^1.11.0"
+indicatif = {version = "^0.18.0", features = ["rayon"]}
+reqwest = { version = "^0.11", features = ["blocking","json"] }
+serde_json = "^1.0"
+serde = { version = "^1.0", features = ["derive"] }
+thiserror = "^2.0.17"
+clap = "4.5"
+chrono = "^0.4.42"
+
+
+[dependencies.uuid]
+version = "^1.18.1"
+# Lets you generate random UUIDs
+features = [
+    "v4",
+]
+
+
+
+

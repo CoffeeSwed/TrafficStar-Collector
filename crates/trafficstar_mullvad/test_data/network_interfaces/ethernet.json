@@ -1,0 +1,9 @@
+{
+  "interface_name" : "eno1",
+  "tag" : "Ethernet",
+  "ipv4": "0.0.0.0",
+  "ipv4_public" : "212.116.91.46",
+  "data_traversels" : ["Internal","Ethernet"],
+  "fwmark" : "0x10"
+}
+

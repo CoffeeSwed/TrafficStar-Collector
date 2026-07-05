@@ -1,0 +1,19 @@
+[2026-03-02 13:46:45.648] [info] Using configuration file /etc/xdg/waybar/config.jsonc
+[2026-03-02 13:46:45.650] [info] Discovered appearance 'dark'
+[2026-03-02 13:46:45.665] [info] Using CSS file /etc/xdg/waybar/style.css
+[2026-03-02 13:46:45.670] [warning] module sway/workspaces: Disabling module "sway/workspaces", Socket path is empty
+[2026-03-02 13:46:45.671] [warning] module sway/mode: Disabling module "sway/mode", Socket path is empty
+[2026-03-02 13:46:45.672] [warning] module sway/scratchpad: Disabling module "sway/scratchpad", Socket path is empty
+[2026-03-02 13:46:45.674] [error] media stopped unexpectedly, is it endless?
+[2026-03-02 13:46:45.674] [warning] module sway/window: Disabling module "sway/window", Socket path is empty
+[2026-03-02 13:46:45.675] [warning] module backlight: Disabling module "backlight", No backlight found
+[2026-03-02 13:46:45.824] [info] Found device 8BitDo 8BitDo Retro 108 Keyboard at '/dev/input/event6'
+[2026-03-02 13:46:45.855] [info] Found device Wings Tech Xtrfy M42 Keyboard at '/dev/input/event4'
+[2026-03-02 13:46:45.904] [warning] module sway/language: Disabling module "sway/language", Socket path is empty
+[2026-03-02 13:46:45.905] [warning] No batteries.
+[2026-03-02 13:46:45.905] [warning] No battery named BAT2
+[2026-03-02 13:46:45.906] [warning] Error while creating the menu : Failed to expand file: $HOME/.config/waybar/power_menu.xml. Menu popup not activated.
+[2026-03-02 13:46:46.030] [error] Failed to query power-profiles-daemon via dbus: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable
+[2026-03-02 13:46:46.038] [error] Host: GDBus.Error:org.freedesktop.DBus.Error.UnknownObject: No such object path '/StatusNotifierWatcher'
+[2026-03-02 13:46:46.055] [info] Bar configured (width: 2560, height: 30) for output: DP-3
+[2026-03-02 13:46:47.471] [info] Quitting.

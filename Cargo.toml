@@ -1,0 +1,61 @@
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "NOT SPECIFIED"
+homepage = "https://github.com/CoffeeSwed/TrafficStar"
+keywords = [ "anonymity", "fingerprinting", "privacy", "ai" ]
+categories = [ "cryptography" ]
+repository = "https://github.com/CoffeeSwed/TrafficStar/"
+rust-version = "1.96.0"
+authors= ["CoffeeSwed <AndersKristofferNorman@outlook.com>"]
+description = "Used for research project."
+readme = "todo"
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/trafficstar_connections",
+    "crates/trafficstar_nodes",
+    "crates/trafficstar_app",
+    "crates/trafficstar_tor", 
+    "crates/trafficstar_processes", 
+    "crates/trafficstar_logger",
+    "crates/trafficstar_mullvad",
+    "crates/trafficstar_utilities",
+    "crates/trafficstar_errors",
+    "crates/trafficstar_interface",
+    "crates/trafficstar_tests"]
+
+[workspace.lints.rust]
+warnings = { level = "deny", priority = -1 }
+# Security
+non_ascii_idents = "forbid"
+unsafe_code = "warn"
+# Deny old style Rust
+rust_2018_idioms = { level = "deny", priority = -1 }
+macro_use_extern_crate = "deny"
+absolute_paths_not_starting_with_crate = "deny"
+# Easy to read style and opinionated best practices
+explicit_outlives_requirements = "warn"
+missing_abi = "deny"
+single_use_lifetimes = "warn"
+unused_lifetimes = "warn"
+unused_macro_rules = "warn"
+
+
+
+
+[workspace.lints.clippy]
+cargo = { level = "warn", priority = -1 }
+dbg_macro = "warn"
+implicit_clone = "warn"
+manual_let_else = "warn"
+redundant_closure_for_method_calls = "warn"
+unused_async = "deny"
+undocumented_unsafe_blocks = "warn"
+wildcard_imports = "warn"
+
+#Powerless to fix this.
+multiple-crate-versions = "allow"
+
+

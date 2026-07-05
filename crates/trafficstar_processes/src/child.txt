@@ -1,0 +1,55 @@
+(base) [norman@archlinux ~]$ sudo ip netns add container
+[sudo] password for norman: 
+(base) [norman@archlinux ~]$ sudo ip netns exec container bash
+[root@archlinux norman]# ip --brief a
+lo               DOWN           
+vchild@if6       DOWN           
+[root@archlinux norman]# sudo ip link set up vchild
+[root@archlinux norman]# ip --brief a
+lo               DOWN           
+vchild@if6       LOWERLAYERDOWN 
+[root@archlinux norman]# ip addr add 192.168.100.2/24 dev vchild
+[root@archlinux norman]# ip route add default via 192.168.100.1
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+^C
+--- 1.1.1.1 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2077ms
+
+[root@archlinux norman]# sudo ip link set mtu 1300 vchild
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+^C
+--- 1.1.1.1 ping statistics ---
+12 packets transmitted, 0 received, 100% packet loss, time 11297ms
+
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+^C
+--- 1.1.1.1 ping statistics ---
+6 packets transmitted, 0 received, 100% packet loss, time 5107ms
+
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+^C
+--- 1.1.1.1 ping statistics ---
+14 packets transmitted, 0 received, 100% packet loss, time 13293ms
+
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+^C
+--- 1.1.1.1 ping statistics ---
+36 packets transmitted, 0 received, 100% packet loss, time 35858ms
+
+[root@archlinux norman]# ^C
+[root@archlinux norman]# ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=58 time=17.9 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=58 time=17.6 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=58 time=17.5 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=58 time=17.5 ms
+^C
+--- 1.1.1.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3001ms
+rtt min/avg/max/mdev = 17.479/17.609/17.888/0.165 ms
+[root@archlinux norman]# 

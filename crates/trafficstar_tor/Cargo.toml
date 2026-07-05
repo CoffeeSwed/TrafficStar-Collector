@@ -1,0 +1,51 @@
+[package]
+name = "trafficstar_tor"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+repository.workspace = true
+description = "Does TOR connections. Heavily inspired by OnionMasq and Arti-client examples"
+readme.workspace = true
+
+[dependencies]
+trafficstar_logger = { path = "../trafficstar_logger" }
+trafficstar_logger_macro = { path = "../trafficstar_logger_macro" }
+
+colored = "3.0.0"
+
+
+trafficstar_utilities = { path = "../trafficstar_utilities" }
+trafficstar_errors = { path = "../trafficstar_errors" }
+
+trafficstar_processes = { path = "../trafficstar_processes" }
+trafficstar_interface = { path = "../trafficstar_interface" }
+
+thiserror = "*"
+
+strum_macros = "^0.27"
+strum = "^0.27"
+arti-client = "*"
+tokio = {version = "*", features = ["full"]}
+tokio-util = { version = "*", features = ["full"] }
+futures = "*"
+nix = {version = "^0.31.1", features=["event"]}
+err = "^0.0.8"
+log = "*"
+rmp-serde = "^1.3.1"
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = "^1.0"
+reqwest = { version = "^0.11", features = ["blocking","json"] }
+tor-rtcompat = { version = "*" }
+rustls = "*"
+tempdir = "*"
+socket2 = "^0.6.0"
+
+onion-tunnel = { git = "ssh://git@github.com/CoffeeSwed/TrafficStarOnionMasq.git", package = "onion-tunnel" }
+once_cell = "^1.21.4"
+
+url = "^2.5.8"
+[lib]
+path = "src/lib.rs"

@@ -1,0 +1,40 @@
+(base) [norman@archlinux ~]$ cd /mnt/ssd/TrafficStar-images/
+(base) [norman@archlinux TrafficStar-images]$ sudo wg-quick up ./se-got-wg-001.conf 
+(base) [norman@archlinux TrafficStar-images]$ sudo ip link add vparent type veth peer name vchild
+(base) [norman@archlinux TrafficStar-images]$ ip --brief a
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eno1             UP             192.168.0.193/24 2001:2043:7c83:f200:336b:b729:8ffb:bd1/64 fe80::4851:e296:92a6:8b56/64 
+docker0          DOWN           172.17.0.1/16 
+se-got-wg-001    UNKNOWN        10.68.125.19/32 fc00:bbbb:bbbb:bb01::5:7d12/128 
+vchild@vparent   DOWN           
+vparent@vchild   DOWN           
+(base) [norman@archlinux TrafficStar-images]$ sudo ip link set netns container vchild
+(base) [norman@archlinux TrafficStar-images]$ sudo ip link set vparent up
+(base) [norman@archlinux TrafficStar-images]$ sudo ip addr add 192.168.100.1/24 dev vparent
+(base) [norman@archlinux TrafficStar-images]$ sudo ip route add default dev se-got-wg-001 table 200
+(base) [norman@archlinux TrafficStar-images]$ sudo ip rule add from 192.168.100.0/24 lookup 200
+(base) [norman@archlinux TrafficStar-images]$ sudo ip link set mtu 1300 vparent
+(base) [norman@archlinux TrafficStar-images]$ sudo iptables -A FORWARD -i vparent -o se-got-wg-001 -j ACCEPT
+(base) [norman@archlinux TrafficStar-images]$ sudo iptables -A FORWARD -i se-got-wg-001 -o vparent -m state --state RELATED,ESTABLISHED -j ACCEPT
+(base) [norman@archlinux TrafficStar-images]$ sudo iptables -t nat -A POSTROUTING -o se-got-wg-001 -j MASQUERADE
+(base) [norman@archlinux TrafficStar-images]$ sudo sysctl -w net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.all.rp_filter = 0
+(base) [norman@archlinux TrafficStar-images]$ sudo sysctl -w net.ipv4.conf.vparent.rp_filter=0
+net.ipv4.conf.vparent.rp_filter = 0
+(base) [norman@archlinux TrafficStar-images]$ sudo sysctl -w net.ipv4.conf.se-got-wg-001.rp_filter=0
+net.ipv4.conf.se-got-wg-001.rp_filter = 0
+(base) [norman@archlinux TrafficStar-images]$ sudo tcpdump -i se-got-wg-001 -n
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on se-got-wg-001, link-type RAW (Raw IP), snapshot length 262144 bytes
+12:18:32.996612 IP 10.68.125.19 > 1.1.1.1: ICMP echo request, id 4778, seq 1, length 64
+12:18:33.014388 IP 1.1.1.1 > 10.68.125.19: ICMP echo reply, id 4778, seq 1, length 64
+12:18:33.996661 IP 10.68.125.19 > 1.1.1.1: ICMP echo request, id 4778, seq 2, length 64
+12:18:34.014148 IP 1.1.1.1 > 10.68.125.19: ICMP echo reply, id 4778, seq 2, length 64
+12:18:34.997424 IP 10.68.125.19 > 1.1.1.1: ICMP echo request, id 4778, seq 3, length 64
+12:18:35.014819 IP 1.1.1.1 > 10.68.125.19: ICMP echo reply, id 4778, seq 3, length 64
+12:18:35.998087 IP 10.68.125.19 > 1.1.1.1: ICMP echo request, id 4778, seq 4, length 64
+12:18:36.015482 IP 1.1.1.1 > 10.68.125.19: ICMP echo reply, id 4778, seq 4, length 64
+^C
+8 packets captured
+8 packets received by filter
+0 packets dropped by kernel
