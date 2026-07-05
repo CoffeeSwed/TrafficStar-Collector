@@ -15,8 +15,8 @@ datasets across four network access technologies (Ethernet, WiFi, 5G, Starlink).
 TrafficStar: Connection-Type Fingerprinting of Tor Users — Reducing Anonymity 
 by Detecting Connection Types. Karlstad University, 2026.
 
-[Available on DiVA] (add link when published)
+Diva link will be added once it's published on Diva; for now, check the included PDF. 
 
 ## TOR
-The Tor implementation part is not currently exposed. Will update it once i have the time to do so :). 
+The Tor implementation part is not currently exposed. Will update it once I get the time to do so :). 
 Previous versions used a custom modified OnionMasq fork to make Tor interfaces. However, this exposed some problems with GuardManager that crashed the program in rare cases. So for now, it launches an OnionMasq binary as a program... 
